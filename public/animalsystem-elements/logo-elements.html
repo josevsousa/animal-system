@@ -1,0 +1,45 @@
+<link rel="import" href="../bower-components/polymer/polymer.html">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+
+<dom-module id="logo-elements">
+  <template>
+    <style>
+      :host {
+        display: block;
+      	}
+      div#logo {
+    	display: flex;
+    	flex-direction: column;
+    	margin: 0 auto;
+    	color: #88DEF9;    
+    	font-family: 'Roboto', sans-serif;
+		}
+		#imgLogo{
+		  margin: 0 auto;
+		  font-size: 6em;
+		}
+		#nomeLogo{
+		  margin: 0 auto;
+		  font-size: xx-large;
+		}
+		span#s {
+    		color: #26CCFF;
+		}
+    </style>
+    <div id="logo">
+    	<i id="imgLogo" class="material-icons">pets</i>
+	    <span id="nomeLogo">
+	    	animal<span id="s">System</span>
+	    </span>
+	</div>
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'logo-elements'
+    });
+  </script>
+  
+</dom-module>
+    

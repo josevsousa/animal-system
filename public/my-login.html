@@ -1,0 +1,81 @@
+<link rel="import" href="bower-components/polymer/polymer.html">
+<link rel="import" href="bower-components/polymerfire/firebase-auth.html">
+<link rel="import" href="bower-components/paper-button/paper-button.html">
+<link rel="import" href="bower-components/paper-styles/color.html">
+<link rel="import" href="../animalsystem-elements/logo-elements.html">
+
+<dom-module id="my-login">
+	<template>
+	<style is="custom-style">
+		  #container {
+		    display: flex;
+		    flex-direction: column;
+		    margin:3em;
+
+		  }
+		  paper-button {
+		    font-family: 'Roboto', 'Noto', sans-serif;
+		    font-weight: normal;
+		    font-size: 14px;
+		    -webkit-font-smoothing: antialiased;
+		    margin-top: 0.7em;
+		  }
+		  paper-button.indigo {
+		    background-color: #ea4335;
+		    color: white;
+		  }
+		  paper-button.facebook {
+		    background-color: #4285f4;
+		    color: white;
+		  }
+		</style>		
+		<firebase-auth 
+			id = "auth" 
+			user = "{{user}}" 
+			status-known = "{{statusKnown}}"
+			>
+		</firebase-auth>
+		
+		<div class="vertical-container">
+			<div id="container">
+				<!-- logo elements -->
+				<logo-elements></logo-elements>
+				<!-- botoes elements -->
+				<paper-button raised on-tap="loginG" icon="favorite" class="indigo" hidden$= "[[user]]"> 
+					Google
+				</paper-button>
+				<paper-button raised on-tap="loginF" icon="favorite" class="facebook" hidden$= "[[user]]">	Facebook
+				</paper-button>
+				<paper-button raised on-tap="logout" class="green" hidden$= "[[!user]]"> Sign Outh</paper-button>
+
+			</div>
+		</div>	
+
+
+
+	</template>
+	<script>
+		Polymer({
+			is: "my-login",
+			properties: {
+				user: { type: Object },
+				statusKnown: { type: Object },
+				name: {
+					type: Boolean,
+					value: false
+				}
+			},
+			loginG: function(){
+				// console.log('ddd')
+				return this.$.auth.signInWithPopup("google");
+			},
+			loginF: function(){
+				// console.log('ddd')
+				return this.$.auth.signInWithPopup("facebook");
+			},
+			logout: function(){
+				return this.$.auth.signOut();
+			}
+		});
+	</script>
+</dom-module>

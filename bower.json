@@ -1,0 +1,24 @@
+{
+  "name": "animal-system",
+  "authors": [
+    "= <josev@josev.com.br>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower-components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.1",
+    "polymerfire": "firebase/polymerfire#^0.10.3",
+    "paper-button": "PolymerElements/paper-button#^1.0.14"
+  }
+}
